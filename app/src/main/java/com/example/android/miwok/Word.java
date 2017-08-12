@@ -22,22 +22,28 @@ public class Word {
      * Image Resource Id for the word.
      */
     private int mImageResourceId = N0_IMAGE_PROVIDED;
+    /**
+     * Audio Resource Id for the pronunciation of the word.
+     */
+    private int mAudioResourceId;
 
     /**
      * Constructor 1- When no Image Resource Id is provided.
      */
-    public Word(String defaultTranslation, String miwokTranslation) {
+    public Word(String defaultTranslation, String miwokTranslation, int audioResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mAudioResourceId = audioResourceId;
     }
 
     /**
      * Constructor 2 - When Image Resource Id is provided.
      */
-    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int audioResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResourceId;
+        mAudioResourceId = audioResourceId;
     }
 
     /**
@@ -62,6 +68,13 @@ public class Word {
     }
 
     /**
+     * Get the  translated audio resource Id
+     */
+    public int getAudioResourceId() {
+        return mAudioResourceId;
+    }
+
+    /**
      * Check whether Word object contains image.
      *
      * @return true or false
@@ -70,4 +83,16 @@ public class Word {
         return mImageResourceId != N0_IMAGE_PROVIDED;
     }
 
+    /**
+     * @return string representation of {@link Word} object.
+     */
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mMiwokTranslation='" + mMiwokTranslation + '\'' +
+                ", mImageResourceId=" + mImageResourceId +
+                ", mAudioResourceId=" + mAudioResourceId +
+                '}';
+    }
 }
